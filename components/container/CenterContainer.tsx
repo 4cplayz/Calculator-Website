@@ -7,6 +7,7 @@ const CenterContainer = (
     between, 
     evenly,
     align,
+    items,
     gap,
     margin,
     padding,  // Add margin and padding here
@@ -17,6 +18,7 @@ const CenterContainer = (
     between?: boolean, 
     evenly?: boolean,
     align?: boolean,
+    items?: boolean,
     gap?: number,
     margin?: number,
     padding?: number,
@@ -26,6 +28,7 @@ const CenterContainer = (
   const betweenClass = between ? 'justify-between' : '';
   const evenlyClass = evenly ? 'justify-evenly' : '';
   const alignClass = align ? 'content-center' : '';
+  const itemsClass = items ? 'items-center' : '';
   
   const style = {
     gap: gap !== undefined ? `${gap}rem` : undefined,
@@ -34,7 +37,7 @@ const CenterContainer = (
   };
 
   return (
-    <div className={`flex ${centerClass} ${betweenClass} ${evenlyClass} ${alignClass}`} style={style}>
+    <div className={`flex ${itemsClass} ${centerClass} ${betweenClass} ${evenlyClass} ${alignClass}`} style={style}>
       {children}
     </div>
   );
