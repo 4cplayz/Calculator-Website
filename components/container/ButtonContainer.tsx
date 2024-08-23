@@ -1,50 +1,70 @@
 "use client";
-import React from 'react';
+import React, { useState } from 'react';
 
-interface ButtonContainerProps {
-  onButtonClick: (buttonValue: string) => void;
-  onEqualClick: () => void;
-  onClearClick: () => void;
-}
+const ButtonContainer = ({
+  children,
+  margin,
+  padding,
+  invert = false,
+  align,
+  items,
+  Size,
+  Weight,
+  borderRadius,
+  bg,
+}: {
+  children?: React.ReactNode;
+  padding?: number;
+  margin?: number;
+  invert?: boolean;
+  align?: boolean;
+  items?: boolean;
+  Size?: number;
+  Weight?: number;
+  borderRadius?: number;
+  bg?: boolean;
+}) => {
+  const [hover, setHover] = useState(false);
 
-function ButtonContainer({
-  onButtonClick,
-  onEqualClick,
-  onClearClick,
-}: ButtonContainerProps) {
-  const buttonClasses = "bg-blue-500 text-white p-4 rounded hover:bg-blue-700";
+  const alignClass = align ? 'content-center' : '';
+  const itemsClass = items ? 'items-center' : '';
+  const bgClass = bg ? 'bg-blue-300' : '';
+
+  const style = {
+    color: hover
+      ? invert
+        ? 'var(--primary-color)'
+        : 'var(--secondary-color)'
+      : invert
+      ? 'var(--secondary-color)'
+      : 'var(--primary-color)',
+    backgroundColor: hover
+      ? invert
+        ? 'var(--secondary-color)'
+        : 'var(--primary-color)'
+      : invert
+      ? 'var(--primary-color)'
+      : 'var(--secondary-color)',
+    fontSize: Size ? `${Size}rem` : undefined,
+    fontWeight: Weight ? Weight : undefined,
+    borderRadius: borderRadius !== undefined ? `${borderRadius}rem` : `0.375rem`,
+    margin: margin !== undefined ? `${margin}rem` : undefined,
+    padding: padding !== undefined ? `${padding}rem` : undefined,
+    transition: 'all 0.3s ease', // Optional: for smooth transitions
+  };
 
   return (
-    <div className="grid grid-cols-4 gap-2">
-      {['7', '8', '9', '/'].map((btn) => (
-        <button key={btn} onClick={() => onButtonClick(btn)} className={buttonClasses}>
-          {btn}
-        </button>
-      ))}
-      {['4', '5', '6', '*'].map((btn) => (
-        <button key={btn} onClick={() => onButtonClick(btn)} className={buttonClasses}>
-          {btn}
-        </button>
-      ))}
-      {['1', '2', '3', '-'].map((btn) => (
-        <button key={btn} onClick={() => onButtonClick(btn)} className={buttonClasses}>
-          {btn}
-        </button>
-      ))}
-      <button onClick={onClearClick} className="bg-red-500 text-white p-4 rounded hover:bg-red-700">
-        C
-      </button>
-      <button onClick={() => onButtonClick('0')} className={buttonClasses}>
-        0
-      </button>
-      <button onClick={onEqualClick} className={buttonClasses}>
-        =
-      </button>
-      <button onClick={() => onButtonClick('+')} className={buttonClasses}>
-        +
+    <div>
+      <button
+        className={`flex ${bgClass} ${alignClass} ${itemsClass}`}
+        style={style}
+        onMouseEnter={() => setHover(true)}
+        onMouseLeave={() => setHover(false)}
+      >
+        {children}
       </button>
     </div>
   );
-}
+};
 
 export default ButtonContainer;

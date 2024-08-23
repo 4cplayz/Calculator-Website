@@ -1,12 +1,6 @@
 "use client";
 import React, { useState } from 'react';
-import ButtonContainer from '../container/ButtonContainer';
-
-type ButtonContainerProps = {
-  onButtonClick: (buttonValue: string) => void;
-  onEqualClick: () => void;
-  onClearClick: () => void;
-};
+import CalculationContainer from '../container/CalculationContainer';
 
 // Main Calculator Component
 function Calculator() {
@@ -36,7 +30,7 @@ function Calculator() {
     <div className="p-4 max-w-sm mx-auto">
       <h1 className="text-2xl font-bold text-center mb-4">Simple Calculator</h1>
       <div className="border rounded p-2 mb-4 text-xl text-center">{input}</div>
-      <ButtonContainer 
+      <CalculationContainer 
         onButtonClick={handleButtonClick} 
         onEqualClick={handleEqualClick} 
         onClearClick={handleClearClick} 
