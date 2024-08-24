@@ -16,8 +16,8 @@ const TextContainer = (
   }:
   {
     children?: React.ReactNode,
-    margin?: boolean,
-    padding?: boolean,
+    margin?: number,
+    padding?: number,
     Size?: number,
     Weight?: number,
     center?: boolean,
@@ -28,8 +28,6 @@ const TextContainer = (
     bg?: boolean,
   }) => 
 {
-  const paddingClass = padding ? 'p-2' : '';
-  const marginClass = margin ? 'm-2' : '';
   const centerClass = center ? 'text-center' : '';
   const justifyClass = justify ? 'text-justify' : '';
   const alignClass = align ? 'content-center' : '';
@@ -41,10 +39,12 @@ const TextContainer = (
     color: invert ? 'var(--primary-color)' : 'var(--secondary-color)',
     fontSize: Size ? `${Size}rem` : undefined,
     fontWeight: Weight ? Weight : undefined,
+    margin: margin !== undefined ? `${margin}rem` : undefined,
+    padding: padding !== undefined ? `${padding}rem` : undefined,
   }
 
   return (
-    <p className={`flex ${itemsClass} ${alignClass} ${bgClass} ${marginClass} ${centerClass} ${justifyClass} ${paddingClass}`} style={style}>
+    <p className={`flex ${itemsClass} ${alignClass} ${bgClass}  ${centerClass} ${justifyClass}`} style={style}>
       {children}
     </p>
   )

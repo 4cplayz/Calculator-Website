@@ -4,13 +4,13 @@ import TextContainer from '../container/TextContainer'
 
 const Header = () => {
   return (
-    <div>
-      <CenterContainer center align gap={10} margin={1}>
-        <TextContainer Size={1} invert={false}>
-          This is a simple caculator to practice my coding skills hopefully this turns out well 
+    <CenterContainer center gap={10} margin={0.5} items>
+      <div className='fixed top-1'>
+        <TextContainer Size={1} invert={false} margin={0.25}>
+          This is a simple calculator to practice my coding skills. Hoping this turns out well.
         </TextContainer>
-      </CenterContainer>
-    </div>
+      </div>
+    </CenterContainer>
   )
 }
 

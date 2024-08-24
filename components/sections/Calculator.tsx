@@ -1,6 +1,8 @@
 "use client";
 import React, { useState } from 'react';
 import CalculationContainer from '../container/CalculationContainer';
+import BoxContainer from '../container/BoxContainer';
+import TextContainer from '../container/TextContainer';
 
 // Main Calculator Component
 function Calculator() {
@@ -28,8 +30,13 @@ function Calculator() {
 
   return (
     <div className="p-4 max-w-sm mx-auto">
-      <h1 className="text-2xl font-bold text-center mb-4">Simple Calculator</h1>
-      <div className="border rounded p-2 mb-4 text-xl text-center">{input}</div>
+      <div className='mb-4'>
+        <BoxContainer invert borderWidth={2} minH={50}>
+          <TextContainer center Size={1.25} padding={0.5}>
+              {input}
+          </TextContainer>
+        </BoxContainer>
+      </div>
       <CalculationContainer 
         onButtonClick={handleButtonClick} 
         onEqualClick={handleEqualClick} 
