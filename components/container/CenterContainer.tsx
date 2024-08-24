@@ -11,6 +11,7 @@ const CenterContainer = (
     gap,
     margin,
     padding,  // Add margin and padding here
+    row,
   }: 
   {
     children?: React.ReactNode, 
@@ -22,6 +23,7 @@ const CenterContainer = (
     gap?: number,
     margin?: number,
     padding?: number,
+    row?: boolean,
   }) => 
 {
   const centerClass = center ? 'justify-center' : '';
@@ -29,6 +31,7 @@ const CenterContainer = (
   const evenlyClass = evenly ? 'justify-evenly' : '';
   const alignClass = align ? 'content-center' : '';
   const itemsClass = items ? 'items-center' : '';
+  const rowClass = row ? 'flex-row' : 'flex-col';
   
   const style = {
     gap: gap !== undefined ? `${gap}rem` : undefined,
@@ -37,7 +40,7 @@ const CenterContainer = (
   };
 
   return (
-    <div className={`flex ${itemsClass} ${centerClass} ${betweenClass} ${evenlyClass} ${alignClass}`} style={style}>
+    <div className={`flex ${rowClass} ${itemsClass} ${centerClass} ${betweenClass} ${evenlyClass} ${alignClass}`} style={style}>
       {children}
     </div>
   );

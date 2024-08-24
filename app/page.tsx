@@ -1,28 +1,16 @@
-import BoxContainer from "@/components/container/BoxContainer";
-import ButtonContainer from "@/components/container/ButtonContainer";
 import CenterContainer from "@/components/container/CenterContainer";
-import TextContainer from "@/components/container/TextContainer";
 import Calculator from "@/components/sections/Calculator";
+import Footer from "@/components/sections/Footer";
+import Hero from "@/components/sections/Hero";
 
 export default function Home() { 
   return ( 
     <main> 
-      <CenterContainer center>
-      <BoxContainer center align maxW={300} borderRadius={1}>
-        <TextContainer center invert Size={3} items>
-          bro 
-        </TextContainer>
-        <TextContainer center  invert Size={6} >
-          1123
-        </TextContainer>
-      </BoxContainer>
-      <div>
+      <CenterContainer center items>
+        <Hero />
         <Calculator/>
-      </div>
+        <Footer />         
       </CenterContainer>
-      <ButtonContainer padding={1}>
-          Please
-      </ButtonContainer>
     </main>
   );
 }

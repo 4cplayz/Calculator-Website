@@ -11,7 +11,7 @@
 :root {
   --primary-color: #333333;
   --secondary-color: #DDDDDD;
-  --accent-color: #e74c3c;
+  --accent-color: #ff0000;
 }
 
 
@@ -24,4 +24,5 @@ html, body {
   width: 100%;
   font-family: sans-serif; /* You can customize the font as needed */
 }
+
 
