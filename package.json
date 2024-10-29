@@ -1,4 +1,5 @@
 {
+  "homepage": "http://4cplayz.github.io/Calculator-Website",
   "name": "calculator-website",
   "version": "0.1.0",
   "private": true,
@@ -6,6 +7,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "predeploy": "npm run build",
+    "deploy" : "gh-page -d build",
     "lint": "next lint"
   },
   "dependencies": {
